@@ -1,6 +1,6 @@
 {
   "name": "polyuworld-addon-physics-lab",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "Duckify your Hubs with this add-on",
   "scripts": {
     "build": "webpack --mode=production",
