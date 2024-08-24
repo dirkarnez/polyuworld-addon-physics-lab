@@ -80,14 +80,15 @@ function duckChatCommand(app: App) {
 }
 
 function onReady(app: App) {
-  [URL_QUACK, URL_SPECIAL_QUACK].forEach((url) => {
-    const sfxSystem = app.getSystem(
-      SystemsE.SoundEffectsSystem
-    ) as SoundEffectsSystem;
-    sfxSystem.registerSound(url).then((sound: SoundDefT) => {
-      sounds.set(sound.url, sound.id);
-    });
-  });
+  // [URL_QUACK, URL_SPECIAL_QUACK].forEach((url) => {
+  //   const sfxSystem = app.getSystem(
+  //     SystemsE.SoundEffectsSystem
+  //   ) as SoundEffectsSystem;
+  //   sfxSystem.registerSound(url).then((sound: SoundDefT) => {
+  //     sounds.set(sound.url, sound.id);
+  //   });
+  // });
+  app.messageDispatch.dispatchEvent(new CustomEvent("message", { detail: JSON.parse('{"name":"Virtual Physics Assistant","type":"chat","body":"Hello~","maySpawn":true,"sent":false}') }));
 }
 
 let sounds = new Map<string, number>();
