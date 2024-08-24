@@ -96,7 +96,16 @@ registerAddon("polyuworld-addon-template", {
   name: "polyuworld addon template (Hubs Duck)",
   description: `Spawns a duck when the "duck" chat command is invoked. It quacks.`,
   onReady: onReady,
-  system: { system: quackSystem, order: SystemOrderE.PostPhysics },
+  system: { 
+    system: (app: App): void => { 
+      var worldPosition = new THREE.Vector3()
+      const avatarEid: number = anyEntityWith(app.world, AvatarPOVNode)!;
+      const avatarPov: THREE.Object3D = app.world.eid2obj.get(avatarEid)!;
+      avatarPov.getWorldPosition(a);
+      console.log(worldPosition);
+    }, 
+    order: SystemOrderE.PostPhysics 
+  },
   inflator: { jsx: { id: "quack", inflator: duckInflator } },
   prefab: {
     id: "duck",
